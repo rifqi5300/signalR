@@ -12,6 +12,7 @@ namespace WebAppSignalR.Controllers
     {
         public IActionResult Index()
         {
+            //test merge ke master
             return View();
         }
 
