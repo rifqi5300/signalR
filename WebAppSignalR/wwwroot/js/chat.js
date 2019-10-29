@@ -29,8 +29,8 @@ connection.start().then(function () {
 document.getElementById("sendButton").addEventListener("click", function (event) {
         var user = document.getElementById("userInput").value;
         var message = document.getElementById("messageInput").value;
-        var connId = document.getElementById("connId").value;
-        connection.invoke("SendMessage", user, message, connId).catch(function (err) {
+        var userId = document.getElementById("userId").value;
+        connection.invoke("SendMessage", user, message, userId).catch(function (err) {
             return console.error(err.toString());
         });
         event.preventDefault();
