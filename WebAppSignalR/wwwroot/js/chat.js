@@ -20,8 +20,10 @@ connection.on("ReceiveMessage", function (user, message) {
 
 //code ini utk mengecek jika client terkoneksi dengan server, jika terkoneksi tombol send di-enable (disabled false)
 connection.start().then(function () {
-    document.getElementById("sendButton").disabled = false;
+    //jika tidak terjadi any error maka button siap dipencet
+    document.getElementById("sendButton").disabled = false;    
 }).catch(function (err) {
+    alert(err);
     return console.error(err.toString());
 });
 

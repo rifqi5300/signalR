@@ -1,6 +1,8 @@
 @using Microsoft.AspNetCore.Identity
-@inject SignInManager<IdentityUser> SignInManager
-@inject UserManager<IdentityUser> UserManager
+@using WebAppSignalR.Areas.Identity.Models
+
+@inject SignInManager<CustomIdentityUserModel> SignInManager
+@inject UserManager<CustomIdentityUserModel> UserManager
 
 <ul class="navbar-nav">
 @if (SignInManager.IsSignedIn(User))

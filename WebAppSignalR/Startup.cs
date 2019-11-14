@@ -14,6 +14,7 @@ using WebAppSignalR.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using WebAppSignalR.Hubs;
+using WebAppSignalR.Areas.Identity.Models;
 
 namespace WebAppSignalR
 {
@@ -39,7 +40,7 @@ namespace WebAppSignalR
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
-            services.AddDefaultIdentity<IdentityUser>()
+            services.AddDefaultIdentity<CustomIdentityUserModel>()
                 .AddDefaultUI(UIFramework.Bootstrap4)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
 
