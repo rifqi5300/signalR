@@ -18,12 +18,32 @@ connection.on("ReceiveMessage", function (user, message) {
     document.getElementById("messagesList").appendChild(li);
 });
 
+//debugger
+var user = 'wew';
+var message = 'shit dude';
+var userId = '05ddd38d-4a0b-48c9-841b-9f670aa9db51';
+
+connection.invoke("SendMessage", user, message, userId).catch(function (err) {
+    return console.error(err.toString());
+});
+
+connection.on("ReceiveConnectedUsers", function (test) {
+
+    alert('alamak');
+    //alert(connectedUsers);
+
+});
+
 //code ini utk mengecek jika client terkoneksi dengan server, jika terkoneksi tombol send di-enable (disabled false)
 connection.start().then(function () {
     //jika tidak terjadi any error maka button siap dipencet
     document.getElementById("sendButton").disabled = false;    
 }).catch(function (err) {
     alert(err);
+    return console.error(err.toString());
+});
+
+connection.invoke("GetAllConnectedUser").catch(function (err) {
     return console.error(err.toString());
 });
 
