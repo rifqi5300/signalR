@@ -44,8 +44,7 @@ namespace WebAppSignalR.Hubs
         public async Task GetAllConnectedUser()
         {
             var connectedUsers = JsonConvert.SerializeObject(CurrentConnections);
-            string test = "alamak";
-            await Clients.All.SendAsync("ReceiveConnectedUsers", test);
+            await Clients.All.SendAsync("ReceiveConnectedUsers", connectedUsers);
         }
 
         public override async Task OnConnectedAsync()

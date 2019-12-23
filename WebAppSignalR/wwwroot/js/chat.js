@@ -19,18 +19,20 @@ connection.on("ReceiveMessage", function (user, message) {
 });
 
 //debugger
-var user = 'wew';
-var message = 'shit dude';
-var userId = '05ddd38d-4a0b-48c9-841b-9f670aa9db51';
 
-connection.invoke("SendMessage", user, message, userId).catch(function (err) {
-    return console.error(err.toString());
+document.getElementById('sendButton2').addEventListener('click', function () {
+
+    connection.invoke("GetAllConnectedUser").catch(function (err) {
+        return console.error(err.toString());
+    });
 });
+
+
 
 connection.on("ReceiveConnectedUsers", function (test) {
 
-    alert('alamak');
-    //alert(connectedUsers);
+    //alert('alamak');
+    alert(test);
 
 });
 
@@ -38,14 +40,13 @@ connection.on("ReceiveConnectedUsers", function (test) {
 connection.start().then(function () {
     //jika tidak terjadi any error maka button siap dipencet
     document.getElementById("sendButton").disabled = false;    
+    connection.invoke("GetAllConnectedUser").catch(err => console.error(err.toString()));
 }).catch(function (err) {
     alert(err);
     return console.error(err.toString());
 });
 
-connection.invoke("GetAllConnectedUser").catch(function (err) {
-    return console.error(err.toString());
-});
+
 
 //code ini utk mengirim pesan, secara broadcast, user lain diberi signal utk menerima
 document.getElementById("sendButton").addEventListener("click", function (event) {
