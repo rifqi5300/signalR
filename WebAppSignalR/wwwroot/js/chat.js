@@ -40,6 +40,8 @@ connection.on("ReceiveConnectedUsers", function (test) {
 connection.start().then(function () {
     //jika tidak terjadi any error maka button siap dipencet
     document.getElementById("sendButton").disabled = false;    
+    //ketika connection start, butuh waktu sampai status nya connected, agar invoke sukses, panggil dengan .then
+    //utk memastikan invoke di-run setelah connection start perfectly
     connection.invoke("GetAllConnectedUser").catch(err => console.error(err.toString()));
 }).catch(function (err) {
     alert(err);
