@@ -26,5 +26,15 @@ namespace WebAppSignalR.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+
+        public IActionResult Test()
+        {
+            return View();
+        }
+
+        public IActionResult Test2()
+        {
+            return View();
+        }
     }
 }

@@ -27,12 +27,11 @@ document.getElementById('sendButton2').addEventListener('click', function () {
     });
 });
 
-
-
 connection.on("ReceiveConnectedUsers", function (test) {
 
     //alert('alamak');
     alert(test);
+    //alert(connection.);
 
 });
 

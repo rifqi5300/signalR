@@ -12,5 +12,10 @@ namespace WebAppSignalR.Controllers
         {
             return View();
         }
+
+        public IActionResult Site()
+        {
+            return View();
+        }
     }
 }
