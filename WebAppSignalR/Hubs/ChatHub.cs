@@ -71,6 +71,7 @@ namespace WebAppSignalR.Hubs
                 CurrentConnections.Remove(CurrentConnections.Select(a => a).Where(a => a.ConnectionId == Context.ConnectionId).FirstOrDefault());
             }
 
+            await Clients.All.SendAsync("ReceiveDisconnectedUsers", Context.ConnectionId + " has left.");
 
             await Groups.RemoveFromGroupAsync(Context.ConnectionId, "SignalR Users");
             await base.OnDisconnectedAsync(exception); 

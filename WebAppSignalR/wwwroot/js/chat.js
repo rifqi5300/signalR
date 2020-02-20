@@ -35,6 +35,10 @@ connection.on("ReceiveConnectedUsers", function (test) {
 
 });
 
+connection.on("ReceiveDisconnectedUsers", function (test) {
+    alert(test);
+});
+
 //code ini utk mengecek jika client terkoneksi dengan server, jika terkoneksi tombol send di-enable (disabled false)
 connection.start().then(function () {
     //jika tidak terjadi any error maka button siap dipencet

@@ -121,6 +121,7 @@
         });
 
         connection.start().then(function () {
+            alert('signal r connection has started');
             document.getElementById('sendButton').disabled = false;
             document.getElementById('openChatForm').disabled = false;
 
@@ -132,7 +133,7 @@
         document.getElementById('sendButton').addEventListener('click', function (event) {
             var user = 'customer';
             var message = document.getElementById('messageInput').value;
-            var userId = '4dbb6197-daf5-478b-b509-1bd5aa19867e';
+            var userId = 'dac9a1b3-8cd8-4fd0-b198-363bad5723f2';
 
             connection.invoke('SendMessage', user, message, userId).catch(function (err) {
                 return console.error(err.toString());
@@ -149,6 +150,10 @@
         function closeForm() {
             document.getElementById("myForm").style.display = "none";
         }
+
+        connection.on("ReceiveDisconnectedUsers", function (test) {
+            alert(test);
+        });
 
 
     </script>
